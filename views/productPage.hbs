@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Document</title>
+</head>
+ {{!-- {{> navbar}} --}}
+<body>
+    <nav class="bg-black text-white h-10 flex items-center space-x-4 px-12">
+        <a href="/">Add Product</a>
+        <a href="/getProduct">GetProduct</a>
+    </nav>
+    <div class="  gap-x-4 flex flex-wrap mt-12 px-12">
+
+    {{#each product}}
+        <div class="bg-blue-300 gap-4 p-1 rounded-xl">
+            <img  src={{this.image}} class="rounded-xl w-48 h-48">
+            <h1 class="text-center text-white text-xl">{{this.name}}</h1>
+            <h1 class="text-center text-white text-xl">{{this.price}}$</h1>
+            <div class="flex justify-center gap-x-4 my-4">
+                <button class="bg-blue-500 px-4 py-1 rounded-lg text-white"><a href="/delete/{{this.productId}}">Delete</a></button>
+                <button class="bg-blue-500 px-4 py-1 rounded-lg text-white"><a href="/update/{{this.productId}}">Update</a></button>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</body>
+</html>
